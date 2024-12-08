@@ -187,55 +187,6 @@ void resultadoAnalise(){
     #endif
 }
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 int movimenta_estudantePoder(Mapa mapa, estudante aluno, coordenadas dimensao, int *cont, pilha* stack, int *moveX, int *moveY, coordenadas posicao,int poderes){
 
 
@@ -270,8 +221,11 @@ int movimenta_estudantePoder(Mapa mapa, estudante aluno, coordenadas dimensao, i
 		//conferindo se não o movimento não está marcado e se ele está dentro das dimensões do mapa 
 		if(x_atual >= 0 && y_atual >=0 && x_atual < dimensao.x && y_atual < dimensao.y){
 
-			//Se caminho livre ou se porta e estudante com chave -> movimento permitido
-			if(mapa[x_atual][y_atual] == 1 || mapa[x_atual][y_atual] == 4 || (mapa[x_atual][y_atual] == 3 && aluno.chaves_no_bolso >= 1) || (mapa[x_atual][y_atual] == 3 && aluno.chaves_no_bolso <=1 && poderes > 0) || (mapa[x_atual][y_atual] == 2 && aluno.chaves_no_bolso <=1 && poderes > 0)){
+			//Se caminho livre ou se porta e estudante com chave -> movimento permitido e unsando cargas de poderes 
+			if(mapa[x_atual][y_atual] == 1 || mapa[x_atual][y_atual] == 4 || 
+			(mapa[x_atual][y_atual] == 3 && aluno.chaves_no_bolso >= 1) || 
+			(mapa[x_atual][y_atual] == 3 && aluno.chaves_no_bolso <=1 && poderes > 0) || 
+			(mapa[x_atual][y_atual] == 2 && aluno.chaves_no_bolso <=1 && poderes > 0)){
 			    if(mapa[x_atual][y_atual] == 3) aluno.chaves_no_bolso--;
 				if(mapa[x_atual][y_atual] == 2 && aluno.chaves_no_bolso <=1 && poderes > 0) poderes--;
 				if(mapa[x_atual][y_atual] == 3 && aluno.chaves_no_bolso <=1 && poderes > 0) poderes--;
