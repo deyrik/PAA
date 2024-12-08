@@ -57,7 +57,6 @@ void menuPrincipal(){
     coordenadas dimensao;
     //ApontadorMapa mapa = NULL; //inicialmente nao guarda mapa nenhum
 
-    int permitir = 0;
     do{
         printf("\n\n");
         printf("Opcoes do programa:\n");
@@ -185,7 +184,7 @@ void GerarArquivo(){
     scanf("%d", &chaves);
     printf("Digite a dificuldade (0-100, onde valores altos geram mais paredes): ");
     scanf("%d", &dificuldade);
-    printf("Digite qunatas chaves estão perdidas no labirinto: ");
+    printf("Digite quantas chaves estão perdidas no labirinto: ");
     scanf("%d", &chavesPerdidas);
 
     gerarLabirinto(nomeArquivo, largura, altura, chaves, dificuldade,chavesPerdidas);

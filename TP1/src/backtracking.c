@@ -30,10 +30,18 @@ coordenadas topo;
 int pos_topo;
 pilha* auxiliar;
 
+//Variáveis para análise de tempo
+clock_t inicio, fim;
+double tempoGasto;
 #endif
 
 int movimenta_estudante(Mapa mapa, estudante aluno, coordenadas dimensao, int *cont, pilha* stack, int *moveX, int *moveY, coordenadas posicao){
-	
+	//No modo analise, inicia a contagem de tempo
+	#ifdef ANALISE
+		inicio = clock();
+	#endif
+
+
 	if (pilhaVazia(stack)){
 		return -1;
 	}
@@ -169,5 +177,11 @@ void resultadoAnalise(){
         printf("chamadas recursivas = %d\n", contagemRecursiva);
         printf("nivel max = %d\n", pos_topo+1);
 		contagemRecursiva = 0;
+
+		//saber o tempo gasto
+		fim = clock();
+		tempoGasto = (double)(fim - inicio) / CLOCKS_PER_SEC;
+    	printf("Tempo de execução: %.5f segundos\n", tempoGasto);
+
     #endif
 }
