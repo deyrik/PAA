@@ -64,7 +64,8 @@ void menuPrincipal(){
         printf("2) Mostrar Graficamente o arquivo.\n");
         printf("3) Processar e exibir resposta.\n");
         printf("4) Gerar novo arquivo.\n");
-        printf("5) Encerrar o programa.\n");
+        printf("5) Backtracking com Aluno com poderes.\n");
+        printf("6) Encerrar o programa.\n");
 
         printf("\nDigite um numero: ");
         scanf("%d", &opcao);
@@ -81,8 +82,11 @@ void menuPrincipal(){
                 break;
             case 4:
                 GerarArquivo();
-                break;  
+                break;
             case 5:
+                AlunoComPoderes(guardaMapa, aluno, dimensao);
+                break;  
+            case 6:
                 printf("Saindo do sistema...\n");
                 break;
             default:
@@ -90,12 +94,12 @@ void menuPrincipal(){
                 printf("Opcao invalida! tente outra\n");
         }
 
-    }while(opcao != 5);
+    }while(opcao != 6);
 }
 
 void CarregarArquivo(ApontadorMapa mapa,ApontadorEstudante aluno, ApontadorCoordenadas dimensao){
 
-    //se o mapa nao existir, eu crio um novo
+
     if (*mapa == NULL){
 
         limparTerminalUnix();
@@ -107,18 +111,7 @@ void CarregarArquivo(ApontadorMapa mapa,ApontadorEstudante aluno, ApontadorCoord
         InsereLabirinto(&(*mapa),nomeArquivo , &(*aluno), &(*dimensao));
         pressEnter();
 
-        // printf("Deseja visualizar o mapa? (1 -> SIM, 0 -> NAO): ");
-        // int opcao;
-        // scanf("%d", &opcao);
 
-        // if (opcao == 1){
-        //     printf("\n\n");
-        //     MostrarMapa((*mapa), (*dimensao).x, dimensao->y);
-        //     pressEnter();
-        //     limparTerminalUnix();
-        //     return;
-        // }
-        // else return;
         return;
  
     }
@@ -203,4 +196,21 @@ void VerGraficamente(ApontadorMapa guardaMapa, estudante aluno, coordenadas dime
         pressEnter();
         return;
     }
+}
+
+void AlunoComPoderes(ApontadorMapa guardaMapa, estudante aluno, coordenadas dimensao){
+    limparTerminalUnix();
+        if (*guardaMapa != NULL){
+                printf("quantas cargas de poderes deseja dar ao aluno? ");
+                int poderes;
+                scanf("%d", &poderes);
+                ExploraLabirintoPoder(*guardaMapa, dimensao.x, dimensao.y, aluno,poderes);
+                ApagaMapa(guardaMapa, dimensao.x); 
+
+            return;
+        } else {
+            printf("Sem labirinto a ser explorado! Carregue um arquivo.\n");
+            return;
+        }
+
 }

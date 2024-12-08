@@ -36,7 +36,7 @@ void CarregarArquivo(ApontadorMapa mapa,ApontadorEstudante aluno, ApontadorCoord
 void ProcessarDados(ApontadorMapa guardaMapa, estudante aluno, coordenadas dimensao);
 void GerarArquivo();
 void VerGraficamente(ApontadorMapa guardaMapa, estudante aluno, coordenadas dimensao);
-
+void AlunoComPoderes(ApontadorMapa guardaMapa, estudante aluno, coordenadas dimensao);
 
 
 #endif

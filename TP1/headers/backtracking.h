@@ -31,3 +31,9 @@ int movimenta_estudante(Mapa mapa, estudante aluno, coordenadas dimensao, int *c
 // void exploraAnalise(Mapa mapa, int linhas, int colunas, estudante aluno);
 void resultadoAnalise();
 #endif
+
+
+
+//com poderes
+int movimenta_estudantePoder(Mapa mapa, estudante aluno, coordenadas dimensao, int *cont, pilha* stack, int *moveX, int *moveY, coordenadas posicao,int poderes);
+void ExploraLabirintoPoder(Mapa mapa, int linhas, int colunas, estudante aluno, int poderes);
